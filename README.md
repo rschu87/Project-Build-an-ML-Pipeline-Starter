@@ -1,4 +1,23 @@
 # Build an ML Pipeline for Short-Term Rental Prices in NYC
+
+## Project links
+
+- **GitHub repository:** https://github.com/rschu87/Project-Build-an-ML-Pipeline-Starter
+- **Weights & Biases project:** https://wandb.ai/rschu87-western-governors-university/nyc_airbnb
+
+## Results
+
+- Hyperparameter sweep: 4 runs (max_depth 10/50 x n_estimators 100/200). Best was max_depth 50, n_estimators 200, which is now the default in `config.yaml`.
+- Validation: MAE 34.18, R2 0.551
+- Test set (model tagged `prod`): MAE 33.85, R2 0.562, so no sign of overfitting.
+- Release 1.0.0 failed on `sample2.csv` because of a listing outside NYC. Release 1.0.1 adds a longitude/latitude filter to `basic_cleaning` and runs cleanly.
+
+## Ideas for future releases
+
+- Try other models (gradient boosting, for example) as a separate training step and compare them in W&B.
+- Use more of the listing text than the 5 TF-IDF features the baseline keeps.
+- Widen the hyperparameter search. The 4 runs here were all within about $0.25 MAE of each other, so the bigger gains are probably in features, not tuning.
+
 You are working for a property management company renting rooms and properties for short periods of 
 time on various rental platforms. You need to estimate the typical price for a given property based 
 on the price of similar properties. Your company receives new data in bulk every week. The model needs 
