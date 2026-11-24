@@ -9,7 +9,7 @@
 
 - Hyperparameter sweep: 4 runs (max_depth 10/50 x n_estimators 100/200). Best was max_depth 50, n_estimators 200, which is now the default in `config.yaml`.
 - Validation: MAE 34.18, R2 0.551
-- Test set (model tagged `prod`): MAE 33.85, R2 0.562, so no sign of overfitting.
+- Test set (`model_export` tagged `prod`): MAE 33.85, R2 0.562, so no sign of overfitting.
 - Release 1.0.0 failed on `sample2.csv` because of a listing outside NYC. Release 1.0.1 adds a longitude/latitude filter to `basic_cleaning` and runs cleanly.
 
 ## Ideas for future releases
